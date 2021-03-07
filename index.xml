@@ -1,1 +1,120 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Twor</title><link>https://twor.me/</link><description>Recent content on Twor</description><generator>Hugo -- gohugo.io</generator><language>zh</language><copyright>&amp;copy; 2021 &lt;a href="https://Twor.me/">Twor&lt;/a></copyright><lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://twor.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Chapter 1</title><link>https://twor.me/docs/example-doc/chapter-1/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://twor.me/docs/example-doc/chapter-1/</guid><description>&lt;p>This is chapter 1 of example doc.&lt;/p></description></item><item><title>Chapter 1</title><link>https://twor.me/docs/example-doc/nested-chapter/chapter-1/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://twor.me/docs/example-doc/nested-chapter/chapter-1/</guid><description>&lt;p>This is chapter 1 of nested chapter.&lt;/p></description></item><item><title>Chapter 2</title><link>https://twor.me/docs/example-doc/chapter-2/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://twor.me/docs/example-doc/chapter-2/</guid><description>&lt;p>This is chapter 2 of example doc.&lt;/p></description></item><item><title>Chapter 2</title><link>https://twor.me/docs/example-doc/nested-chapter/chapter-2/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://twor.me/docs/example-doc/nested-chapter/chapter-2/</guid><description>&lt;p>This is chapter 2 of nested chapter.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Twor</title>
+    <link>https://twor.me/</link>
+    <description>Recent content on Twor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://Twor.me/&#34;&gt;Twor&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://twor.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chapter 1</title>
+      <link>https://twor.me/docs/example-doc/chapter-1/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/docs/example-doc/chapter-1/</guid>
+      <description>&lt;p&gt;This is chapter 1 of example doc.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 1</title>
+      <link>https://twor.me/docs/example-doc/nested-chapter/chapter-1/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/docs/example-doc/nested-chapter/chapter-1/</guid>
+      <description>&lt;p&gt;This is chapter 1 of nested chapter.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 2</title>
+      <link>https://twor.me/docs/example-doc/chapter-2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/docs/example-doc/chapter-2/</guid>
+      <description>&lt;p&gt;This is chapter 2 of example doc.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Chapter 2</title>
+      <link>https://twor.me/docs/example-doc/nested-chapter/chapter-2/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/docs/example-doc/nested-chapter/chapter-2/</guid>
+      <description>&lt;p&gt;This is chapter 2 of nested chapter.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux上优雅的控制手机(水群)</title>
+      <link>https://twor.me/posts/linux_android/</link>
+      <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/linux_android/</guid>
+      <description>&lt;p&gt;解决在 linux 上使用 QQ 的痛点&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git 自动化部署网站</title>
+      <link>https://twor.me/posts/git_auto_web/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/git_auto_web/</guid>
+      <description>&lt;p&gt;git 仓库搭建到服务器，直接上传部署网站或项目&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git命令进阶—删除隐私 同步fork pull request 和merge</title>
+      <link>https://twor.me/posts/git_bash_tip/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/git_bash_tip/</guid>
+      <description>&lt;p&gt;在开发的时候，为了测试数据，总会连接一些数据库、服务器、API 之类，提交的时候就会不小心泄漏我们的 SSH key、密码或者 token 之类的东西，所以有必要掌握 Git 删除隐私。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面</title>
+      <link>https://twor.me/posts/wsl_archlinux_gui/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/wsl_archlinux_gui/</guid>
+      <description>&lt;p&gt;WSL(Windows Subsystem for Linux)安装 archlinux，并配置图形化界面&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>最新ArchLinux安装</title>
+      <link>https://twor.me/posts/archlinux_install/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/archlinux_install/</guid>
+      <description>&lt;p&gt;新版 archlinux 的安装，相比之前有些改动&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Oh-my-zsh 配置美化（vscode乱码解决）</title>
+      <link>https://twor.me/posts/oh-my-zsh_config/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/oh-my-zsh_config/</guid>
+      <description>&lt;p&gt;让你的终端不再乱码&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ArchLinux 桌面折腾[i3wm polybar rofi zsh]</title>
+      <link>https://twor.me/posts/archlinux_i3wm/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/archlinux_i3wm/</guid>
+      <description>&lt;p&gt;i3wm 是一个窗口管理器，平铺高效，很适合 archlinux&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Windows上安装ngixn php并添加服务自启动</title>
+      <link>https://twor.me/posts/windows_nginx_php/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/windows_nginx_php/</guid>
+      <description>&lt;p&gt;方便设置在 windows 下管理 nginx 和 php-fcgi&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

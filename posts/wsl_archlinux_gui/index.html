@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面 | Twor</title>
+<link rel="stylesheet" href="https://twor.me/css/eureka.min.css">
+<script defer src="https://twor.me/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://twor.me/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面",
+      "item":"https://twor.me/posts/wsl_archlinux_gui/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://twor.me/posts/wsl_archlinux_gui/"
+    },
+    "headline": "WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面 | Twor","datePublished": "2019-06-05T00:00:00+00:00",
+    "dateModified": "2019-06-05T00:00:00+00:00",
+    "wordCount":  334 ,
+    "author": {
+        "@type": "Person",
+        "name": ["Twor"]
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Twor",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://twor.me/images/icon.png"
+        }
+        },
+    "description": "WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面"
+}
+</script><meta property="og:title" content="WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面 | Twor" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://twor.me/images/icon.png">
+
+
+<meta property="og:url" content="https://twor.me/posts/wsl_archlinux_gui/" />
+
+
+
+<meta property="og:description" content="WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="Twor" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-06-05T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2019-06-05T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="windows,archlinux" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Twor</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/photos/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Photo</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-06-05</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>WSL(Windows Subsystem for Linux)安装 archlinux，并配置图形化界面</p>
+<h3 id="开启-wsl"><strong>开启 wsl</strong></h3>
+<p>Windows 功能 &raquo; 勾选<code>适用于Linux的Windows子系统</code> ，重启生效。</p>
+<h3 id="下载安装-arch-wsl"><strong>下载安装 Arch WSL</strong></h3>
+<p>这里是作者的安装教程：<a href="https://github.com/yuk7/ArchWSL/wiki">https://github.com/yuk7/ArchWSL/wiki</a></p>
+<p>我选择的是传统方式安装 (不使用 AppX 方式)：</p>
+<ol>
+<li>在  <a href="https://github.com/yuk7/ArchWSL/releases">Release</a>  下载最新版的  <code>Arch.zip</code></li>
+<li>解压到 C 盘根目录，(一定要在 C 盘，其他位置也可以)，但是你要有该目录的读写权限，所以不能放到  <code>Program Files</code>  等目录中。</li>
+<li>双击解压好的  <code>Arch.exe</code>  进行安装，这个  <strong>.exe 的名字</strong>  就是要创建的  <strong>WSL 实例的名字</strong>，改不同的名字就能创建多个 Arch WSL。</li>
+</ol>
+<p>安装好之后，进行配置。</p>
+<h3 id="arch-linux-软件仓库国内镜像"><strong>Arch Linux 软件仓库国内镜像</strong></h3>
+<p>编辑  <code>/etc/pacman.d/mirrorlist</code>，里面有注释了的  <code>China</code>  的镜像，（放在上面优先级高）</p>
+<p><a href=""></a></p>
+<p>然后更新软件包缓存，执行： <code>pacman -Syyu</code></p>
+<p>其他跟镜像有关的可以看这里：<a href="https://wiki.archlinux.org/index.php/Mirrors_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">https://wiki.archlinux.org/index.php/Mirrors_(简体中文)</a></p>
+<h3 id="添加-archlinuxcn-源"><strong>添加 ArchlinuxCN 源</strong></h3>
+<blockquote>
+<p>Arch Linux 中文社区仓库 是由 Arch Linux 中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体 / 美化包等。官方仓库地址：http://repo.archlinuxcn.org</p>
+</blockquote>
+<p>使用方法：在  <code>/etc/pacman.conf</code>  文件末尾添加以下两行：</p>
+<pre><code>[archlinuxcn]
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+
+</code></pre>
+<p>之后安装  <code>archlinuxcn-keyring</code>  包导入 GPG key:</p>
+<pre><code>pacman-key --init
+pacman-key --populate
+pacman -Syy &amp;&amp; pacman -S archlinuxcn-keyring
+</code></pre>
+<h3 id="安装-aur-助手-yay"><strong>安装 AUR 助手 yay</strong></h3>
+<blockquote>
+<p>Arch User Repository（常被称作 AUR），是一个为 Arch 用户而生的社区驱动软件仓库。Debian/Ubuntu 用户的对应类比是 PPA。AUR 包含了不直接被 Arch Linux 官方所背书的软件。如果有人想在 Arch 上发布软件或者包，它可以通过这个社区仓库提供。这让最终用户们可以使用到比默认仓库里更多的软件。所以你该如何使用 AUR 呢？简单来说，你需要另外的工具以从 AUR 中安装软件。Arch 的包管理器 pacman 不直接支持 AUR。那些支持 AUR 的 “特殊工具” 我们称之为 AUR 助手。</p>
+</blockquote>
+<p>我们想从 AUR 仓库中安装东西时，就需要 AUR 助手，这里推荐  <code>yay</code>.</p>
+<p><img src="https://gh-card.dev/repos/Jguer/yay.svg" alt="https://gh-card.dev/repos/Jguer/yay.svg"></p>
+<pre><code>pacman -S yay
+</code></pre>
+<p>安装完  <code>yay</code>，<code>git</code>  也会被一起装好。换成国内 AUR 源:</p>
+<pre><code>##yay --save --aururl &quot;地址&quot;
+yay --save --aururl https://aur.tuna.tsinghua.edu.cn
+</code></pre>
+<p>yay 的配置文件路径： <code>~/.config/yay/config.json</code></p>
+<h3 id="创建-arch-普通用户"><strong>创建 Arch 普通用户</strong></h3>
+<p>刚安装好的 Arch 是 root 用户，为了不至于权限太大误伤系统，可以先创建一个普通用户。</p>
+<p>添加一个用户：</p>
+<pre><code>useradd -m -G wheel twor
+</code></pre>
+<p>设置用户密码：</p>
+<pre><code>passwd twor
+</code></pre>
+<p>在下一步之前，要先把默认编辑器设置成 vim，因为用不来默认的 vi…</p>
+<pre><code>export EDITOR=vim
+</code></pre>
+<p>你也可以设置成自己喜欢的编辑器。让用户可以执行 sudo 命令，这一步不能省略。使用如下系统自带命令修改  <code>sudoers</code>  文件。</p>
+<pre><code>visudo
+</code></pre>
+<p>在里面注销注释（删除前面的<code>#</code>）这一行即可：</p>
+<pre><code>%wheel  ALL=(ALL)  ALL
+</code></pre>
+<p><a href=""></a></p>
+<h3 id="切换-wsl-默认用户"><strong>切换 WSL 默认用户</strong></h3>
+<p>在 cmd 中打开你的安装目录：</p>
+<p><a href=""></a></p>
+<p>执行：</p>
+<pre><code>Arch.exe config --default-user artin
+</code></pre>
+<h3 id="配置基本环境"><strong>配置基本环境</strong></h3>
+<p>安装 fakeroot、binutils 等打包基本工具</p>
+<pre><code>pacman -S base-devel
+</code></pre>
+<p>我这里会提示  <code>fakeroot</code>  被 ignore 了，选 n 然后回车就好了，不输入数字的话默认会安装  <code>base-devel</code>  里的所有包。</p>
+<h3 id="安装-i3"><strong>安装 i3</strong></h3>
+<pre><code>sudo pacman -S i3
+</code></pre>
+<p>这里你可以选择 All 或者你需要的</p>
+<h3 id="配置-i3"><strong>配置 i3</strong></h3>
+<p><del>这里就不说了，不会的自己去教程吧</del></p>
+<h2 id="配置-archlinuxwsl图形化"><strong>配置 archlinux（wsl）图形化</strong></h2>
+<p>下载<a href="https://sourceforge.net/projects/vcxsrv/">vcxsrv</a>并安装（也可以使用其他 Windows X Server）</p>
+<p>创建连接脚本</p>
+<pre><code>mkdir .script
+vim .script/xlaunch
+</code></pre>
+<p>写入：</p>
+<pre><code>#!/bin/bash
+
+# meant to be run with `bash -c &quot;/path/to/xlaunch&quot;` when running from e.g. a Windows shortcut
+
+# explicitly needed when launching with bash -c from Windows
+export DISPLAY=:0
+#export LIBGL_ALWAYS_INDIRECT=0
+source ~/.bashrc
+#xrandr --dpi 279
+i3
+</code></pre>
+<p>赋予执行权限</p>
+<pre><code>chmod +x .script/xlaunch
+</code></pre>
+<p>然后在 Windows 下创建一个脚本  <code>Archlinux.vbs</code></p>
+<pre><code>' vcxsrv所在路径 C:\Program Files\VcXsrv\vcxsrv.exe
+' arch.exe 所在路径 C:\Arch\Arch.exe
+' achlinux连接脚本所在路径 ~/.scripts/wlaunch
+Set shell = CreateObject(&quot;WScript.Shell&quot; )
+shell.Run &quot;&quot;&quot;C:\Program Files\VcXsrv\vcxsrv.exe&quot;&quot; :0 -screen 0 @1 -nodecoration -wgl&quot;
+shell.Run &quot;C:\Arch\Arch.exe run &quot;&quot;~/.scripts/wlaunch&quot;&quot;&quot;, 0
+</code></pre>
+<p>双击运行<code>Archlinux.vbs</code>  就可以连接上了</p>
+<p><a href=""></a></p>
+<p>大功告成！</p>
+<p>oh-my-zsh Polybar &hellip; 剩下的自己折腾吧！</p>
+<h2 id="提示"><strong>提示</strong></h2>
+<ol>
+<li>i3 在配置的时候建议使用<code>alt</code>键，因为 Windows 的<code>win</code>键被 Windows 自身热键占用</li>
+<li>Windows 的文件（C 盘 D 盘&hellip;）在  <code>/mnt</code>  文件夹内</li>
+<li>重新尝试安装（重置 archlinux）<code>wsl --unregister Arch</code>  或者完全卸载 wsl <code>lxrun /uninstall /full</code></li>
+<li>以后补充</li>
+</ol>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://twor.me/tags/windowsarchlinux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#windows,archlinux</a>
+    
+</div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="https://twor.me/authors/twor/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="https://twor.me/images/icon.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="https://twor.me/authors/twor/" class="block font-bold text-lg pb-1 mb-2 border-b">Twor</a>
+            <span class="block pb-2">听我脸色行事</span>
+            
+            
+            
+            
+            
+            <a href="mailto:840833458@qq.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://space.bilibili.com/35754233" class="mr-1">
+                <i class="fab fa-youtube"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/Twor" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://twor.me/posts/git_bash_tip/" class="block">Git命令进阶—删除隐私 同步fork pull request 和merge</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://twor.me/posts/archlinux_install/" class="block">最新ArchLinux安装</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+<span
+  id="/posts/wsl_archlinux_gui/"
+  class="leancloud_visitors"
+  data-flag-title="WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面"
+>
+  <span class="post-meta-item-text">文章阅读量 </span>
+  <span class="leancloud-visitors-count">0</span>
+  <p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+    el: "#vcomments",
+    appId: "hrOTL8wnYwOngGDd3GfkpiGL-MdYXbMMI",
+    appKey: "PAHDpBPppE0BsRG9e4hnKT9P",
+    notify: "false",
+    verify: "false",
+    avatar: "mm",
+    placeholder: "说点什么吧...",
+    visitor: "true",
+  });
+</script>
+
+ 
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#开启-wsl"><strong>开启 wsl</strong></a></li>
+        <li><a href="#下载安装-arch-wsl"><strong>下载安装 Arch WSL</strong></a></li>
+        <li><a href="#arch-linux-软件仓库国内镜像"><strong>Arch Linux 软件仓库国内镜像</strong></a></li>
+        <li><a href="#添加-archlinuxcn-源"><strong>添加 ArchlinuxCN 源</strong></a></li>
+        <li><a href="#安装-aur-助手-yay"><strong>安装 AUR 助手 yay</strong></a></li>
+        <li><a href="#创建-arch-普通用户"><strong>创建 Arch 普通用户</strong></a></li>
+        <li><a href="#切换-wsl-默认用户"><strong>切换 WSL 默认用户</strong></a></li>
+        <li><a href="#配置基本环境"><strong>配置基本环境</strong></a></li>
+        <li><a href="#安装-i3"><strong>安装 i3</strong></a></li>
+        <li><a href="#配置-i3"><strong>配置 i3</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#配置-archlinuxwsl图形化"><strong>配置 archlinux（wsl）图形化</strong></a></li>
+    <li><a href="#提示"><strong>提示</strong></a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://Twor.me/">Twor</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

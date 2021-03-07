@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>最新ArchLinux安装 | Twor</title>
+<link rel="stylesheet" href="https://twor.me/css/eureka.min.css">
+<script defer src="https://twor.me/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="最新ArchLinux安装">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://twor.me/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"最新ArchLinux安装",
+      "item":"https://twor.me/posts/archlinux_install/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://twor.me/posts/archlinux_install/"
+    },
+    "headline": "最新ArchLinux安装 | Twor","datePublished": "2019-06-05T00:00:00+00:00",
+    "dateModified": "2019-06-05T00:00:00+00:00",
+    "wordCount":  541 ,
+    "author": {
+        "@type": "Person",
+        "name": ["Twor"]
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Twor",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://twor.me/images/icon.png"
+        }
+        },
+    "description": "最新ArchLinux安装"
+}
+</script><meta property="og:title" content="最新ArchLinux安装 | Twor" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://twor.me/images/icon.png">
+
+
+<meta property="og:url" content="https://twor.me/posts/archlinux_install/" />
+
+
+
+<meta property="og:description" content="最新ArchLinux安装" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="Twor" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-06-05T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2019-06-05T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="archlinux" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Twor</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/photos/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Photo</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">最新ArchLinux安装</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-06-05</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>新版 archlinux 的安装，相比之前有些改动</p>
+<h3 id="前言"><strong>前言</strong></h3>
+<p>archlinux 的 iso 镜像文件自 2020.06.01 开始改了很多东西，大概就这几个方面：</p>
+<hr>
+<ol>
+<li>archiso 默认的 shell 是 zsh，不再是 bash 了。</li>
+<li>archlinux 摒弃了之前的<code>wifi-menu</code>，改为使用 iwd 来管理网络。</li>
+<li>对于镜像源的管理，采用 reflector 进行管理，终于不用去手动更改镜像源的位置了，使用 reflector 一条命令就搞定了。</li>
+</ol>
+<h2 id="正文"><strong>正文</strong></h2>
+<h3 id="必需条件"><strong>必需条件</strong></h3>
+<ol>
+<li>一台可以使用的电脑</li>
+<li>一个 4G 以上内存的 USB 存储器</li>
+<li>一个可以查看本文的电子设备:)</li>
+<li>一个快速的网络</li>
+</ol>
+<h3 id="制作-usb-启动盘"><strong>制作 USB 启动盘</strong></h3>
+<ol>
+<li>首先在**<a href="https://link.zhihu.com/?target=https%3A//www.archlinux.org/download/">这里</a>**找一个延迟低的官方镜像站下载 ArchLinux 的 iso 镜像，我下载的是最新版本，参数如下:</li>
+</ol>
+<ul>
+<li>Current Release: 2020.07.01</li>
+<li>Included Kernel: 5.7.6</li>
+<li>ISO Size: 647.0 MB</li>
+</ul>
+<ol>
+<li>在镜像站下载 PGP 签名，然后使用<code>gpg</code>验证签名确保镜像完整性以及安全性，命令如下: <code>gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso. sig</code></li>
+<li>然后使用磁盘烧录工具将镜像写入你的 USB 存储器。 Linux 系统建议使用<code>dd</code>这个神器。 Windows 系统的话，建议使用开源软件<code>rufus</code>，最好不要使用那个 UltralISO，很容易出问题。</li>
+</ol>
+<h2 id="开始安装"><strong>开始安装</strong></h2>
+<h3 id="验证启动模式"><strong>验证启动模式</strong></h3>
+<p>从 USB 进入 Live 环境，然后验证你的机器的启动模式是 UEFI 还是 BIOS：</p>
+<pre><code class="language-bash">ls /sys/firmware/efi/efivars
+</code></pre>
+<h3 id="连接网络"><strong>连接网络</strong></h3>
+<p>前面已经说过了，Archiso 的默认的无线网络管理改为<code>iwd</code>了，所以这里就讲一下如何使用 iwd 连接 wifi</p>
+<ol>
+<li>在终端中输入<code>iwctl</code>进入 iwd 提示符：</li>
+</ol>
+<pre><code class="language-bash">[root@archiso~] iwctl
+[iwd#]
+</code></pre>
+<ol>
+<li>在<code>[iwd#]</code>中输入<code>device list</code>查询机器的网卡设备。</li>
+<li>使用以下命令查询附近可用的 wifi 网络：</li>
+</ol>
+<pre><code class="language-bash">[iwd#] station &lt;devicename&gt; scan
+[iwd#] station &lt;devicename&gt; get-networks # 显示扫描的结果
+</code></pre>
+<ol>
+<li>在提示符中输入<code>station &lt;devicename&gt; connect &lt;wifi-ssid&gt;</code>连接 wifi 网络，如果 wifi 加密，会提示你输入密码</li>
+</ol>
+<h3 id="更新系统时间"><strong>更新系统时间</strong></h3>
+<p>使用<code>timedatectl</code>命令来确保时间是同步的：</p>
+<pre><code class="language-bash">timedatectl set-ntp true
+timedatectl status # 确保设置成功
+</code></pre>
+<h3 id="磁盘分区"><strong>磁盘分区</strong></h3>
+<p>首先使用<code>lsblk</code>或者其他磁盘工具（例如<code>fdisk</code>）查看磁盘设备：</p>
+<pre><code class="language-bash">lsblk
+// or
+fdisk -l
+</code></pre>
+<p>然后使用<code>fdisk</code>或者<code>cfdisk</code>创建磁盘分区，这里有一点要注意的是，在创建分区的时候， <strong>必需要确保有一个 root 分区<code>/</code></strong> ，此外，对于 UEFI 模式的设备还需要一个额外的 EFI 系统分区，我的分区方式如下：</p>
+<p><a href="https://www.notion.so/ab6de8a446ea4a8d8b093a85cf8a060c">Untitled</a></p>
+<p>无论是<code>fdisk</code>还是<code>cfdisk</code>，用起来都很简单，所以这里不再具体介绍了，想要具体了解的可以查阅**<a href="https://link.zhihu.com/?target=https%3A//wiki.archlinux.org/index.php/Fdisk">fdisk 官方文档</a>**、**<a href="https://link.zhihu.com/?target=https%3A//wiki.archlinux.org/index.php/Cfdisk">cfdisk 官方文档</a>**。对于新人小白，个人推荐<code>cfdisk</code>，有一个伪图形界面，很容易上手。</p>
+<h3 id="格式化分区"><strong>格式化分区</strong></h3>
+<p>按照上面的步骤建立好分区之后，我们需要将每个分区用对应的文件系统进行格式化。</p>
+<p>对于 root 分区、home 分区等直接使用<code>ext4</code>文件系统进行初始化：</p>
+<pre><code class="language-bash">mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda4
+</code></pre>
+<p>如果你的机器是 UEFI 启动模式，使用以下命令初始化 EFI 系统分区：</p>
+<pre><code class="language-bash">mkfs.fat -F32 /dev/sda1
+</code></pre>
+<p>对于交换分区，不能使用上述命令进行格式化，而需要使用<code>mkswap</code>将其初始化：</p>
+<pre><code class="language-bash">mkswap /dev/sda3
+swapon /dev/sda3
+</code></pre>
+<h3 id="挂载分区"><strong>挂载分区</strong></h3>
+<p>首先挂载<code>root</code>分区：</p>
+<pre><code class="language-bash">mount /dev/sda2 /mnt
+</code></pre>
+<p>对于其他分区（swap 分区除外，不需要），需要自己手动创建挂载点：</p>
+<pre><code class="language-bash">mkdir /mnt/efi
+mount /dev/sda1 /mnt/efi
+mkdir /mnt/home
+mount /dev/sda4 /mnt/home
+</code></pre>
+<h3 id="选择镜像源"><strong>选择镜像源</strong></h3>
+<p>文件<code>/etc/pacman.d/mirrorlist</code>定义了软件包会从哪个镜像源下载。在 Live 启动的系统上，所有的镜像都被启用。在列表中越前的镜像在下载软件包时有越高的优先权。你可以相应的修改文件<code>/etc/pacman.d/mirrorlist</code>，并将地理位置最近的镜像源挪到文件的头部来保证下载速度。而且这个文件接下来还会被 pacstrap 拷贝到新系统里，在这里设置好之后就可以一劳永逸了。</p>
+<blockquote>
+<p>这一步其实现在可以省略了，因为现在在 live 环境中使用 reflector 进行镜像的管理，貌似你一连接网络，live 系统会自动执行 reflector 命令来帮你选择镜像源，默认的是根据下载速率进行排序，感兴趣的小伙伴可以自己确认一下（连接网络之前备份一下/etc/pacman.d/mirrorlist 文件，然后连接网络之后，使用 diff 对比前后两个文件的差异）。</p>
+</blockquote>
+<h3 id="安装必需软件包"><strong>安装必需软件包</strong></h3>
+<p>使用 archiso 内置的脚本<code>pacstrap</code>安装一些基本的软件包、内核及常规的硬件固件：</p>
+<pre><code class="language-bash">pacstrap /mnt base linux linux-firmware
+</code></pre>
+<blockquote>
+<p>这里要注意的是，上面的命令并不包括所有的基本程序，如网络管理程序、文本编辑器等，如果你想安装这些程序，可以将名字添加到 pacstrap 后，并用空格隔开。你也可以在 Chroot 进新系统后使用 pacman 手动安装软件包或组。</p>
+</blockquote>
+<p>到这一步，理论上其实新系统已经安装完了，不过还无法正常使用:)所以需要进行配置以正常使用。</p>
+<h2 id="配置系统"><strong>配置系统</strong></h2>
+<h3 id="生成-fstab-文件"><strong>生成 fstab 文件</strong></h3>
+<p>用以下命令生成<code>fstab</code>文件，其中<code>-U</code>选项用来设置 UUID：</p>
+<pre><code class="language-bash">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre>
+<p>然后使用<code>cat /mnt/etc/fstab</code>命令检查以下文件是否正确（每个分区占一行）</p>
+<h3 id="进入到安装的系统"><strong>进入到安装的系统</strong></h3>
+<pre><code class="language-bash">arch-chroot /mnt
+</code></pre>
+<h3 id="安装文本编辑器"><strong>安装文本编辑器</strong></h3>
+<p>现在的新系统连默认的文本编辑器<code>nano</code>都没有了，所以需要自己手动安装一个，不然后面的一些配置无法实现，所以我选择最强的<code>vim</code>：</p>
+<pre><code class="language-bash">pacman -S vim
+</code></pre>
+<h3 id="时区"><strong>时区</strong></h3>
+<p>使用下面的命令设置时区：</p>
+<pre><code class="language-bash">ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+</code></pre>
+<p>然后使用<code>hwclock</code>生成<code>/etc/adjtime</code>文件：</p>
+<p><code>hwclock --systohc</code></p>
+<h3 id="本地化设置"><strong>本地化设置</strong></h3>
+<blockquote>
+<p>本地化的程序与库若要本地化文本，都依赖 Locale，后者明确规定地域、货币、时区日期的格式、字符排列方式和其他本地化标准等等。在下面两个文件设置：locale.gen 与 locale.conf。</p>
+</blockquote>
+<ol>
+<li>首先编辑<code>/etc/locale.gen</code>文件，然后将需要的地区的注释移除，建议将<code>en_US UTF-8</code>和<code>zh_CN UTF-8</code>都取消注释。</li>
+<li>执行<code>locale-gen</code>命令生成 locale。</li>
+<li>创建<code>locale.conf</code>文件并编辑<code>LANG</code>这一变量（将系统 locale 设置为<code>en_US.UTF-8</code>，系统的<code>Log</code>就会用英文显示，这样更容易问题的判断和处理。）：</li>
+</ol>
+<pre><code class="language-bash">LANG=en_US.UTF-8
+</code></pre>
+<p>这里最好不要设置为中文 locale，会导致 TTY 乱码</p>
+<h3 id="网络设置"><strong>网络设置</strong></h3>
+<ol>
+<li>创建<code>/etc/hostname</code>文件设置主机名</li>
+<li>配置<code>/etc/hosts</code>文件，将以下内容添加进去：</li>
+</ol>
+<pre><code class="language-bash">127.0.0.1 localhost
+::1 localhost
+127.0.1.1 myhostname.localdomain myhostname
+</code></pre>
+<p>_note: 如果系统有一个永久的 IP 地址，请使用这个永久的 IP 地址而不是 127.0.1.1。 _</p>
+<h3 id="设置-root-密码"><strong>设置 root 密码</strong></h3>
+<p>使用<code>passwd</code>命令设置 root 密码即可。</p>
+<p>这里不得不说一句，使用 arch 是真的让人舒服的一批，不会出现一些令人无语的问题，我还记得第一次使用 linux 的时候，用的是 fedora，当时想要使用<code>su</code>进入 root，但是发现需要密码，但是我不记得安装的时候设置过 root 密码啊，后来查阅了一些资料才发现，fedora 并没有设置 root 密码，需要自己手动设置（使用<code>sudo passwd root</code>）。</p>
+<h3 id="安装及配置引导程序"><strong>安装及配置引导程序</strong></h3>
+<blockquote>
+<p>安装引导程序之后才能进入系统</p>
+</blockquote>
+<p>我用的引导程序是**<a href="https://link.zhihu.com/?target=https%3A//wiki.archlinux.org/index.php/GRUB">GRUB</a>**，首先安装必要的软件包：</p>
+<pre><code class="language-bash">pacman -S grub efibootmgr
+</code></pre>
+<p>这里详细介绍一下 UEFI 系统如何安装配置 GRUB：</p>
+<ol>
+<li>首先使用以下命令安装到系统：</li>
+</ol>
+<pre><code>grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
+</code></pre>
+<p>note: 因为我的 EFI 分区在<code>/efi</code>目录下，所以上述命令的<code>--efi-directory</code>参数就设置为<code>/efi</code> 2. 使用<code>grub-mkconfig</code>生成 grub 配置文件：</p>
+<pre><code class="language-bash">grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+<h3 id="安装-wifi-网络管理工具"><strong>安装 wifi 网络管理工具</strong></h3>
+<p>如果你不安装的话，新系统是无法联网的哦 我用的是<code>iwd</code>，简单方便又强大</p>
+<pre><code class="language-bash">pacman -S iwd
+</code></pre>
+<h3 id="重启"><strong>重启</strong></h3>
+<ol>
+<li>输入<code>exit</code>或按<code>Ctrl+d</code>退出<code>chroot</code>环境</li>
+<li>用<code>umount -R /mnt</code>手动卸载被挂载的分区</li>
+<li>执行<code>reboot</code>重启系统</li>
+</ol>
+<h2 id="再配置新系统"><strong>再配置新系统</strong></h2>
+<blockquote>
+<p>因为还没有设置普通用户，所以重启后需要使用 root 来进入新系统</p>
+</blockquote>
+<h3 id="配置网卡">配置网卡</h3>
+<p>然后按照 Wiki 的指示写无线网卡的配置，放在  <code>/etc/systemd/network</code>  下。</p>
+<p>对无线网卡来说，最小化的配置是这样的：</p>
+<pre><code class="language-bash">**[Match]**
+Name=wlan0
+**[Network]**
+DHCP=ipv4
+</code></pre>
+<ul>
+<li><code>Match</code>  主要是用于匹配管理的设备，可以通过设备名，MAC 地址等来选择</li>
+<li><code>Network</code>  用来做网络相关的具体配置，比如 DHCP，DNS 等</li>
+</ul>
+<p>在配置写好之后就可以启动  <code>systemd-networkd</code>  的服务啦：</p>
+<pre><code class="language-bash">systemctl start systemd-netword
+</code></pre>
+<p>如果修改了网络配置，只需要 restrart 即可。</p>
+<h3 id="连接网络-1"><strong>连接网络</strong></h3>
+<p>如果你按照我上面写的安装了 wifi 工具<code>iwd</code>，那么你还需要做一些额外的工作才能正常使用它： 启动 iwd 服务，为了以后的使用，建议直接设置为开机自启动，详细方法可以参考**<a href="https://link.zhihu.com/?target=https%3A//wiki.archlinux.org/index.php/Systemd%23Using_units">systemd</a>**</p>
+<p>如果你没有安装 wifi 网络管理工具，或者你安装的工具需要 gui 支持，那么恭喜你，你的系统还是无法联网，恭喜你可以重新体验一次完整的 archlinux 安装流程:)</p>
+<pre><code class="language-bash">systemctl start iwd.service # 启动服务
+systemctl enable iwd.service # 开机自启动服务
+</code></pre>
+<p>你是不是以为这样就能使用 iwd 来连接 wifi 了？那你就大错特错了， <strong>你还需要启动<code>systemd-networkd.service</code>和<code>systemd-resolved.service</code>才行，因为新系统默认不会自启动这两个服务，需要你手动开启</strong></p>
+<p>到这里你才能正常使用<code>iwd</code>这个工具</p>
+<h3 id="安装显示服务器"><strong>安装显示服务器</strong></h3>
+<p>使用下面的命令安装开源的 xorg</p>
+<pre><code class="language-bash">pacman -S xorg
+</code></pre>
+<h3 id="安装显卡驱动"><strong>安装显卡驱动</strong></h3>
+<p>根据自己的显卡配置来选择安装即可。</p>
+<p>这里补充一点，目前的大部分个人电脑都是双显卡（intel 集成显卡+AMD/Nvidia 独立显卡），一般，集成显卡会一直工作，独立显卡根据需要会自动启动。而 Linux</p>
+<p>我的机器配置为 intel 集成显卡+NVIDIA 独立显卡：</p>
+<p>对于 intel 显卡，我安装的是官方的<code>xf86-video-intel</code>驱动：</p>
+<pre><code class="language-bash">pacman -S xf86-video-intel
+</code></pre>
+<p>对于 NVIDIA 显卡，我安装的是开源驱动<code>nouveau</code>：</p>
+<pre><code class="language-bash">pacman -S mesa xf86-video-nouveau
+</code></pre>
+<p>安装完成后还需要配置 xinitrc 文件来保证开机直接启动</p>
+<h3 id="添加普通用户"><strong>添加普通用户</strong></h3>
+<ol>
+<li>使用以下命令添加一个用户</li>
+</ol>
+<pre><code class="language-bash">useradd -m -G &quot;附加组&quot; -s &quot;登陆shell&quot; &quot;用户名&quot;
+</code></pre>
+<p>其中：</p>
+<ul>
+<li><code>-m</code>/<code>--create-home</code>：创建用户主目录/home/[用户名]</li>
+<li><code>-G</code>/<code>--groups</code>：用户要加入的附加组列表；使用逗号分隔多个组，不要添加空格；如果不设置，用户仅仅加入初始组。</li>
+<li><code>-s</code>/<code>--shell</code>：用户默认登录 shell 的路径</li>
+</ul>
+<ol>
+<li>赋予用户 root 权限</li>
+</ol>
+<ul>
+<li>安装 sudo 软件包: <code>pacman -S sudo</code></li>
+<li>在<code>/etc/sudoers</code>文件中的<code>root ALL=(ALL) ALL</code>行下添加<code>yourname ALL=(ALL) ALL</code></li>
+</ul>
+<hr>
+<p>至此，带有图形界面的 arch 系统安装完成了，已经可以基本使用了，如果有其他需求，自己自行进行配置即可。</p>
+<h2 id="个性化系统"><strong>个性化系统</strong></h2>
+<h3 id="安装中文输入法"><strong>安装中文输入法</strong></h3>
+<p>archlinux 中文输入法框架有<code>fcitx</code>/<code>ibus</code>/<code>fcitx5</code>，其中<code>fcitx5</code>貌似是刚刚出现的，之前没见过，所以我就试了试，安装配置起来还挺简单的：</p>
+<ol>
+<li>安装<code>fcitx5</code>软件包</li>
+<li>创建<code>~/.pam_environment</code>并配置环境变量：</li>
+</ol>
+<pre><code class="language-bash">GTK_IM_MODULE DEFAULT=fcitx
+QT_IM_MODULE DEFAULT=fcitx
+XMODIFIERS DEFAULT=@im=fcitx
+</code></pre>
+<ol>
+<li>安装中文输入法引擎<code>fcitx5-rime</code></li>
+<li>安装输入法模块来保证输入法在各种程序中使用：<code>pacman -S fcitx5-gtk fcitx5-qt5</code></li>
+<li>启动 fcitx5，右键 fcitx5 的系统托盘图标，点击<code>configure</code>添加 rime 输入法</li>
+<li><code>ctrl</code>+<code>space</code>键测试是否可以正常使用</li>
+</ol>
+<h3 id="安装字体"><strong>安装字体</strong></h3>
+<pre><code class="language-bash">pacman -S ttf-dejavu # 英文字体
+pacman -S wqy-microhei # 中文字体
+</code></pre>
+<h3 id="安装-zsh"><strong>安装 zsh</strong></h3>
+<p>有一说一，默认的 bash 真的有点丑，所以安装一个好看的 shell 很有必要，比如说 zsh。安装 zsh 的话，我推荐使用**<a href="https://link.zhihu.com/?target=https%3A//github.com/ohmyzsh/ohmyzsh">oh my zsh</a>**这个框架个性化 zsh，配置 zsh 起来简单方便。</p>
+<ol>
+<li>安装 zsh</li>
+<li>使用 curl 安装 ohmyzsh，这个脚本还可以帮你自动更改默认的 shell</li>
+</ol>
+<pre><code class="language-bash">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+</code></pre>
+<p>具体如何配置 zsh，可以参考 ohmyzsh 的**<a href="https://link.zhihu.com/?target=https%3A//github.com/ohmyzsh/ohmyzsh/wiki">官方 wiki</a>**。</p>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://twor.me/tags/archlinux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#archlinux</a>
+    
+</div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="https://twor.me/authors/twor/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="https://twor.me/images/icon.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="https://twor.me/authors/twor/" class="block font-bold text-lg pb-1 mb-2 border-b">Twor</a>
+            <span class="block pb-2">听我脸色行事</span>
+            
+            
+            
+            
+            
+            <a href="mailto:840833458@qq.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://space.bilibili.com/35754233" class="mr-1">
+                <i class="fab fa-youtube"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/Twor" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://twor.me/posts/wsl_archlinux_gui/" class="block">WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://twor.me/posts/oh-my-zsh_config/" class="block">Oh-my-zsh 配置美化（vscode乱码解决）</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+<span
+  id="/posts/archlinux_install/"
+  class="leancloud_visitors"
+  data-flag-title="最新ArchLinux安装"
+>
+  <span class="post-meta-item-text">文章阅读量 </span>
+  <span class="leancloud-visitors-count">0</span>
+  <p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+    el: "#vcomments",
+    appId: "hrOTL8wnYwOngGDd3GfkpiGL-MdYXbMMI",
+    appKey: "PAHDpBPppE0BsRG9e4hnKT9P",
+    notify: "false",
+    verify: "false",
+    avatar: "mm",
+    placeholder: "说点什么吧...",
+    visitor: "true",
+  });
+</script>
+
+ 
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前言"><strong>前言</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#正文"><strong>正文</strong></a>
+      <ul>
+        <li><a href="#必需条件"><strong>必需条件</strong></a></li>
+        <li><a href="#制作-usb-启动盘"><strong>制作 USB 启动盘</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#开始安装"><strong>开始安装</strong></a>
+      <ul>
+        <li><a href="#验证启动模式"><strong>验证启动模式</strong></a></li>
+        <li><a href="#连接网络"><strong>连接网络</strong></a></li>
+        <li><a href="#更新系统时间"><strong>更新系统时间</strong></a></li>
+        <li><a href="#磁盘分区"><strong>磁盘分区</strong></a></li>
+        <li><a href="#格式化分区"><strong>格式化分区</strong></a></li>
+        <li><a href="#挂载分区"><strong>挂载分区</strong></a></li>
+        <li><a href="#选择镜像源"><strong>选择镜像源</strong></a></li>
+        <li><a href="#安装必需软件包"><strong>安装必需软件包</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#配置系统"><strong>配置系统</strong></a>
+      <ul>
+        <li><a href="#生成-fstab-文件"><strong>生成 fstab 文件</strong></a></li>
+        <li><a href="#进入到安装的系统"><strong>进入到安装的系统</strong></a></li>
+        <li><a href="#安装文本编辑器"><strong>安装文本编辑器</strong></a></li>
+        <li><a href="#时区"><strong>时区</strong></a></li>
+        <li><a href="#本地化设置"><strong>本地化设置</strong></a></li>
+        <li><a href="#网络设置"><strong>网络设置</strong></a></li>
+        <li><a href="#设置-root-密码"><strong>设置 root 密码</strong></a></li>
+        <li><a href="#安装及配置引导程序"><strong>安装及配置引导程序</strong></a></li>
+        <li><a href="#安装-wifi-网络管理工具"><strong>安装 wifi 网络管理工具</strong></a></li>
+        <li><a href="#重启"><strong>重启</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#再配置新系统"><strong>再配置新系统</strong></a>
+      <ul>
+        <li><a href="#配置网卡">配置网卡</a></li>
+        <li><a href="#连接网络-1"><strong>连接网络</strong></a></li>
+        <li><a href="#安装显示服务器"><strong>安装显示服务器</strong></a></li>
+        <li><a href="#安装显卡驱动"><strong>安装显卡驱动</strong></a></li>
+        <li><a href="#添加普通用户"><strong>添加普通用户</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#个性化系统"><strong>个性化系统</strong></a>
+      <ul>
+        <li><a href="#安装中文输入法"><strong>安装中文输入法</strong></a></li>
+        <li><a href="#安装字体"><strong>安装字体</strong></a></li>
+        <li><a href="#安装-zsh"><strong>安装 zsh</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://Twor.me/">Twor</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

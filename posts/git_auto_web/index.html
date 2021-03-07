@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Git 自动化部署网站 | Twor</title>
+<link rel="stylesheet" href="https://twor.me/css/eureka.min.css">
+<script defer src="https://twor.me/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="Git 自动化部署网站">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://twor.me/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Git 自动化部署网站",
+      "item":"https://twor.me/posts/git_auto_web/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://twor.me/posts/git_auto_web/"
+    },
+    "headline": "Git 自动化部署网站 | Twor","datePublished": "2019-06-05T00:00:00+00:00",
+    "dateModified": "2019-06-05T00:00:00+00:00",
+    "wordCount":  294 ,
+    "author": {
+        "@type": "Person",
+        "name": ["Twor"]
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Twor",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://twor.me/images/icon.png"
+        }
+        },
+    "description": "Git 自动化部署网站"
+}
+</script><meta property="og:title" content="Git 自动化部署网站 | Twor" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://twor.me/images/icon.png">
+
+
+<meta property="og:url" content="https://twor.me/posts/git_auto_web/" />
+
+
+
+<meta property="og:description" content="Git 自动化部署网站" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="Twor" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-06-05T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2019-06-05T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="git" />
+
+
+
+
+
+<meta property="og:see_also" content="https://twor.me/posts/git_bash_tip/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Twor</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/photos/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Photo</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Git 自动化部署网站</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-06-05</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>git 仓库搭建到服务器，直接上传部署网站或项目</p>
+<h3 id="安装配置-git-服务端">安装配置 Git 服务端</h3>
+<pre><code class="language-bash">$ sudo yum install git
+$ sudo adduser git
+$ su git
+$ cd
+$ mkdir .ssh &amp;&amp; chmod 700 .ssh
+$ touch .ssh/authorized_keys &amp;&amp; chmod 600 .ssh/authorized_keys
+</code></pre>
+<h3 id="写入-ssh-公匙">写入 SSH 公匙</h3>
+<p>接着，我们需要为系统用户 git 的 <code>authorized_keys</code> 文件添加一些开发者 SSH 公钥。</p>
+<pre><code class="language-bash">$ vim .ssh/authorized_keys
+$ #写入SSH公匙
+</code></pre>
+<h3 id="创建仓库">创建仓库</h3>
+<p>现在我们来为开发者新建一个空仓库。可以借助带 <code>--bare</code> 选项的 <code>git init</code> 命令来做到这一点，该命令在初始化仓库时不会创建工作目录：</p>
+<pre><code class="language-bash">$ cd /srv/git
+$ mkdir project.git
+$ cd project.git
+$ git init --bare
+Initialized empty Git repository in /srv/git/project.git/
+</code></pre>
+<h3 id="禁用-git-用户-shell-登录">禁用 git 用户 shell 登录</h3>
+<p>需要注意的是，目前所有（获得授权的）开发者用户都能以系统用户  <code>git</code>  的身份登录服务器从而获得一个普通 shell。 如果你想对此加以限制，则需要修改  <code>/etc/passwd</code>  文件中（<code>git</code>  用户所对应）的 shell 值。</p>
+<p>借助一个名为  <code>git-shell</code>  的受限 shell 工具，你可以方便地将用户  <code>git</code>  的活动限制在与 Git 相关的范围内。 该工具随 Git 软件包一同提供。如果将  <code>git-shell</code>  设置为用户  <code>git</code>  的登录 shell（login shell）， 那么该用户便不能获得此服务器的普通 shell 访问权限。 若要使用  <code>git-shell</code>，需要用它替换掉 bash 或 csh，使其成为该用户的登录 shell。 为进行上述操作，首先你必须确保  <code>git-shell</code>  的完整路径名已存在于  <code>/etc/shells</code>  文件中：</p>
+<pre><code class="language-bash">$ cat /etc/shells # see if git-shell is already in there. If not...
+$ which git-shell # make sure git-shell is installed on your system.
+$ sudo -e /etc/shells # and add the path to git-shell from last command
+</code></pre>
+<p>现在你可以使用  <code>chsh &lt;username&gt; -s &lt;shell&gt;</code>  命令修改任一系统用户的 shell：</p>
+<pre><code class="language-bash">$ sudo chsh git -s $(which git-shell)
+#如果提示没有chsh这个命令，可以去/etc/passwd将目标用户的bash shell更改为所需的内容，或者安装util-linux-user这个包
+</code></pre>
+<p>这样，用户  <code>git</code>  就只能利用 SSH 连接对 Git 仓库进行推送和拉取操作，而不能登录机器并取得普通 shell。 如果试图登录，你会发现尝试被拒绝，像这样：</p>
+<pre><code class="language-bash">$ ssh git@gitserver
+fatal: Interactive git shell is not enabled.
+hint: ~/git-shell-commands should exist and have read and execute access.
+Connection to gitserver closed.
+</code></pre>
+<p>此时，用户仍可通过 SSH 端口转发来访问任何可达的 git 服务器。 如果你想要避免它，可编辑  <code>authorized_keys</code>  文件并在所有想要限制的公钥之前添加以下选项：</p>
+<pre><code>no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty
+</code></pre>
+<p>其结果如下：</p>
+<pre><code class="language-bash">$ cat ~/.ssh/authorized_keys
+no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAABAQCB007n/ww+ouN4gSLKssMxXnBOvf9LGt4LojG6rs6h
+PB09j9R/T17/x4lhJA0F3FR1rP6kYBRsWj2aThGw6HXLm9/5zytK6Ztg3RPKK+4kYjh6541N
+YsnEAZuXz0jTTyAUfrtU3Z5E003C4oxOj6H0rfIF1kKI9MAQLMdpGW1GYEIgS9EzSdfd8AcC
+</code></pre>
+<p>现在，网络相关的 Git 命令依然能够正常工作，但是开发者用户已经无法得到一个普通 shell 了。 正如输出信息所提示的，你也可以在 git 用户的主目录下建立一个目录，来对 git-shell 命令进行一定程度的自定义。 比如，你可以限制掉某些本应被服务器接受的 Git 命令，或者对刚才的 SSH 拒绝登录信息进行自定义，这样，当有开发者用户以类似方式尝试登录时，便会看到你的信息。 要了解更多有关自定义 shell 的信息，请运行 <code>git help shell</code>。</p>
+<h3 id="利用-git-push-向服务器一键部署代码">利用 git push 向服务器一键部署代码</h3>
+<p>进入我们创建的项目仓库</p>
+<pre><code class="language-bash">$ cd /srv/git/project.git
+$ cd hooks
+$ vim post-receive
+</code></pre>
+<p>写入如下代码：</p>
+<pre><code class="language-bash">#!/bin/sh
+git --work-tree=/srv/web/xxx.com checkout -f master #这个目录是代码存放目录不是仓库目录
+echo &quot;The project has been successfully deployed to this server!&quot;
+
+$ chmod +x post-receive
+</code></pre>
+<p>这个挂钩本质是一个脚本，当这个文件在 repo/hooks/文件夹内，名字为 <code>post-receive</code> 并且<code>linux的x属性</code>（可执行）为真的时候，git 会在收到 push 后执行它</p>
+<p>OK！现在上传的代码会在 <code>/srv/web/xxx.com</code> 这个目录里面看见，我们只需要把网站根目录设置在这里就可以了</p>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://twor.me/tags/git/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#git</a>
+    
+</div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="https://twor.me/authors/twor/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="https://twor.me/images/icon.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="https://twor.me/authors/twor/" class="block font-bold text-lg pb-1 mb-2 border-b">Twor</a>
+            <span class="block pb-2">听我脸色行事</span>
+            
+            
+            
+            
+            
+            <a href="mailto:840833458@qq.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://space.bilibili.com/35754233" class="mr-1">
+                <i class="fab fa-youtube"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/Twor" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://twor.me/posts/linux_android/" class="block">Linux上优雅的控制手机(水群)</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://twor.me/posts/git_bash_tip/" class="block">Git命令进阶—删除隐私 同步fork pull request 和merge</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+<span
+  id="/posts/git_auto_web/"
+  class="leancloud_visitors"
+  data-flag-title="Git 自动化部署网站"
+>
+  <span class="post-meta-item-text">文章阅读量 </span>
+  <span class="leancloud-visitors-count">0</span>
+  <p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+    el: "#vcomments",
+    appId: "hrOTL8wnYwOngGDd3GfkpiGL-MdYXbMMI",
+    appKey: "PAHDpBPppE0BsRG9e4hnKT9P",
+    notify: "false",
+    verify: "false",
+    avatar: "mm",
+    placeholder: "说点什么吧...",
+    visitor: "true",
+  });
+</script>
+
+ 
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#安装配置-git-服务端">安装配置 Git 服务端</a></li>
+        <li><a href="#写入-ssh-公匙">写入 SSH 公匙</a></li>
+        <li><a href="#创建仓库">创建仓库</a></li>
+        <li><a href="#禁用-git-用户-shell-登录">禁用 git 用户 shell 登录</a></li>
+        <li><a href="#利用-git-push-向服务器一键部署代码">利用 git push 向服务器一键部署代码</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://twor.me/posts/git_bash_tip/">Git命令进阶—删除隐私 同步fork pull request 和merge</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://Twor.me/">Twor</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

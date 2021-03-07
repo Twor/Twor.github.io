@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>windows,archlinux on Twor</title>
+    <link>https://twor.me/tags/windowsarchlinux/</link>
+    <description>Recent content in windows,archlinux on Twor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://Twor.me/&#34;&gt;Twor&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://twor.me/tags/windowsarchlinux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面</title>
+      <link>https://twor.me/posts/wsl_archlinux_gui/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/wsl_archlinux_gui/</guid>
+      <description>&lt;p&gt;WSL(Windows Subsystem for Linux)安装 archlinux，并配置图形化界面&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

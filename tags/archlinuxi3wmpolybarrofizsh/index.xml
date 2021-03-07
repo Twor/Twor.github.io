@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>archlinux,i3wm,polybar,rofi,zsh on Twor</title>
+    <link>https://twor.me/tags/archlinuxi3wmpolybarrofizsh/</link>
+    <description>Recent content in archlinux,i3wm,polybar,rofi,zsh on Twor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://Twor.me/&#34;&gt;Twor&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://twor.me/tags/archlinuxi3wmpolybarrofizsh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ArchLinux 桌面折腾[i3wm polybar rofi zsh]</title>
+      <link>https://twor.me/posts/archlinux_i3wm/</link>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/archlinux_i3wm/</guid>
+      <description>&lt;p&gt;i3wm 是一个窗口管理器，平铺高效，很适合 archlinux&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

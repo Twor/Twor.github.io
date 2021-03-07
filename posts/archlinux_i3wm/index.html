@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>ArchLinux 桌面折腾[i3wm polybar rofi zsh] | Twor</title>
+<link rel="stylesheet" href="https://twor.me/css/eureka.min.css">
+<script defer src="https://twor.me/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="ArchLinux 桌面折腾[i3wm polybar rofi zsh]">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://twor.me/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"ArchLinux 桌面折腾[i3wm polybar rofi zsh]",
+      "item":"https://twor.me/posts/archlinux_i3wm/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://twor.me/posts/archlinux_i3wm/"
+    },
+    "headline": "ArchLinux 桌面折腾[i3wm polybar rofi zsh] | Twor","datePublished": "2019-04-05T00:00:00+00:00",
+    "dateModified": "2019-04-05T00:00:00+00:00",
+    "wordCount":  251 ,
+    "author": {
+        "@type": "Person",
+        "name": ["Twor"]
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Twor",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://twor.me/images/icon.png"
+        }
+        },
+    "description": "ArchLinux 桌面折腾[i3wm polybar rofi zsh]"
+}
+</script><meta property="og:title" content="ArchLinux 桌面折腾[i3wm polybar rofi zsh] | Twor" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://twor.me/images/icon.png">
+
+
+<meta property="og:url" content="https://twor.me/posts/archlinux_i3wm/" />
+
+
+
+<meta property="og:description" content="ArchLinux 桌面折腾[i3wm polybar rofi zsh]" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="Twor" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-04-05T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2019-04-05T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="archlinux,i3wm,polybar,rofi,zsh" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Twor</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/photos/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Photo</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">ArchLinux 桌面折腾[i3wm polybar rofi zsh]</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-04-05</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>i3wm 是一个窗口管理器，平铺高效，很适合 archlinux</p>
+<h3 id="桌面-i3wm">桌面 i3wm</h3>
+<p>安装窗口管理器</p>
+<pre><code class="language-bash">$ sudo pacman -S i3-gaps xorg-xinit
+</code></pre>
+<p>配置文件位置在 <code>~/.config/i3/config</code></p>
+<p>官方文档 <a href="https://i3wm.org/docs/userguide.html">i3wm 文档</a> <a href="https://github.com/Airblader/i3/blob/gaps-next/README.md">i3-gaps 文档</a></p>
+<p>我的配置 <a href="https://github.com/Twor/dotfile/blob/master/i3/config">https://github.com/Twor/dotfile/blob/master/i3/config</a></p>
+<p>如果使用我的配置你还需要</p>
+<pre><code class="language-bash">$ sudo pacman -S feh ## 壁纸 自行更改 ~/.config/i3/config 壁纸路径
+$ yay -S i3-scrot  ## 截图
+</code></pre>
+<p>效果图</p>
+<p><img src="https://s1.ax1x.com/2020/07/16/UDXjRU.png" alt="https://s1.ax1x.com/2020/07/16/UDXjRU.png"></p>
+<h4 id="启动">启动</h4>
+<p>编辑  <code>~/.xinitrc</code>，在其末尾添加这一行：</p>
+<pre><code class="language-bash">exec i3
+</code></pre>
+<p>如果想记录 i3 程序所有的输出，这一行要写成：</p>
+<pre><code class="language-bash">exec i3 -V &gt;&gt; ~/i3log-$(date +'%F-%k-%M-%S') 2&gt;&amp;1
+</code></pre>
+<h3 id="状态栏-polybar">状态栏 Polybar</h3>
+<p>安装 polybar</p>
+<pre><code class="language-bash">$ sudo pacman -S polybar
+</code></pre>
+<p>配置文件位置在 <code>~/.config/polybar/config</code></p>
+<p>官方文档 <a href="https://github.com/polybar/polybar/wiki">polybar 文档</a></p>
+<p>我的配置 <a href="https://github.com/Twor/dotfile/tree/master/polybar">https://github.com/Twor/dotfile/tree/master/polybar</a></p>
+<p>启用：</p>
+<p>添加一个启动脚本：<code>$HOME/.config/polybar/launch.sh</code></p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+
+# Terminate already running bar instances
+killall -q polybar
+# If all your bars have ipc enabled, you can also use
+# polybar-msg cmd quit
+
+# Launch bar1 and bar2
+echo &quot;---&quot; | tee -a /tmp/polybar1.log /tmp/polybar2.log
+polybar bar1 &gt;&gt;/tmp/polybar1.log 2&gt;&amp;1 &amp;
+polybar bar2 &gt;&gt;/tmp/polybar2.log 2&gt;&amp;1 &amp;
+
+echo &quot;Bars launched...&quot;
+</code></pre>
+<p>请在在 i3 的配置文件中添加以下几行：</p>
+<pre><code class="language-bash">exec_always --no-startup-id $ HOME /.config/polybar/launch.s
+</code></pre>
+<p>并删除这些</p>
+<pre><code class="language-bash">bar {
+    i3bar_command i3bar
+}
+</code></pre>
+<p>第一行执行启动脚本；第二个禁用 i3 的默认栏</p>
+<h3 id="窗口切换器应用程序启动器-rofi">窗口切换器，应用程序启动器 Rofi</h3>
+<p>安装 rofi</p>
+<pre><code class="language-bash">$ sudo pacman -S rofi
+</code></pre>
+<p>配置文件位置在 <code>~/.config/rofi/config</code></p>
+<p>官方文档 <a href="https://github.com/davatorium/rofi/wiki">rofi 文档</a></p>
+<p>我的配置 <a href="https://github.com/Twor/dotfile/tree/master/rofi">https://github.com/Twor/dotfile/tree/master/rofi</a></p>
+<p>效果图</p>
+<p><img src="https://s1.ax1x.com/2020/07/16/Ur9H6f.png" alt="https://s1.ax1x.com/2020/07/16/Ur9H6f.png"></p>
+<h3 id="终端-termite">终端 termite</h3>
+<p>终端有太多选择，就不说了</p>
+<p>安装 termite</p>
+<pre><code class="language-bash">$ sudo pacman -S termite
+</code></pre>
+<h4 id="zsh">zsh</h4>
+<p>安装 <code>zsh</code> <code>oh-my-zsh fmt</code> <code>zsh-syntax-highlighting</code></p>
+<pre><code class="language-bash">$ sudo pacman -S zsh zsh-autosuggestions zsh-syntax-highlighting fmt
+$ sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+</code></pre>
+<p>配置文件位置在 <code>~/.config/termite/config</code></p>
+<p>我的配置 <a href="https://github.com/Twor/dotfile/blob/master/termite/config">termite</a> <a href="https://github.com/Twor/dotfile/blob/master/.zshrc">zsh</a></p>
+<p>效果图</p>
+<p><img src="https://s1.ax1x.com/2020/07/16/UDXjRU.png" alt="https://s1.ax1x.com/2020/07/16/UDXjRU.png"></p>
+<h3 id="其他美化">其他美化</h3>
+<h4 id="窗口模糊-picomcompton">窗口模糊 picom(compton)</h4>
+<p>因为 compton 难以维护，所以分支了这个项目。而需要模糊效果就安装大神修改的版本，如果你需要半透明、透明则可以安装官方版。</p>
+<p>安装 picom</p>
+<pre><code class="language-bash">$ yay -S picom-tryone-git
+</code></pre>
+<p>配置文件位置在 <code>~/.config/picom/config</code></p>
+<p>官方文档 <a href="https://github.com/tryone144/picom/blob/feature/dual_kawase/README.md">picom 文档</a></p>
+<p>我的配置 <a href="https://github.com/Twor/dotfile/blob/master/picom/picom.conf">https://github.com/Twor/dotfile/blob/master/picom/picom.conf</a></p>
+<p>效果图</p>
+<h4 id="触摸板">触摸板</h4>
+<p>看之前的文章=》<a href="https://twor.me/6.html">archllinux 触摸板调教</a></p>
+<h4 id="主题和字体">主题和字体</h4>
+<h5 id="主题">主题</h5>
+<p>这个没啥好说的，安装，使用就完事！</p>
+<p>我使用使用<a href="https://github.com/horst3180/arc-theme">arc-gtk-theme</a>界面主题和<a href="https://github.com/numixproject/numix-icon-theme">numix-icon-theme</a>图标主题，配置工具我是使用的<code>lxappearance</code>。安装</p>
+<pre><code class="language-bash">$ sudo pacman -S arc-gtk-theme numix-icon-theme-git lxappearance
+</code></pre>
+<h5 id="字体">字体</h5>
+<p>如果你使用的我配置，那么请安装下面的字体</p>
+<pre><code class="language-bash">$ sudo pacman -S nerd-fonts-source-code-pro noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+$ yay -S ttf-ms-fonts ttf-cascadia-code
+</code></pre>
+<h4 id="解压">解压</h4>
+<pre><code class="language-bash">sudo pacman -S p7zip file-roller unrar
+</code></pre>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://twor.me/tags/archlinuxi3wmpolybarrofizsh/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#archlinux,i3wm,polybar,rofi,zsh</a>
+    
+</div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="https://twor.me/authors/twor/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="https://twor.me/images/icon.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="https://twor.me/authors/twor/" class="block font-bold text-lg pb-1 mb-2 border-b">Twor</a>
+            <span class="block pb-2">听我脸色行事</span>
+            
+            
+            
+            
+            
+            <a href="mailto:840833458@qq.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://space.bilibili.com/35754233" class="mr-1">
+                <i class="fab fa-youtube"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/Twor" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://twor.me/posts/oh-my-zsh_config/" class="block">Oh-my-zsh 配置美化（vscode乱码解决）</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://twor.me/posts/windows_nginx_php/" class="block">Windows上安装ngixn php并添加服务自启动</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+<span
+  id="/posts/archlinux_i3wm/"
+  class="leancloud_visitors"
+  data-flag-title="ArchLinux 桌面折腾[i3wm polybar rofi zsh]"
+>
+  <span class="post-meta-item-text">文章阅读量 </span>
+  <span class="leancloud-visitors-count">0</span>
+  <p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+    el: "#vcomments",
+    appId: "hrOTL8wnYwOngGDd3GfkpiGL-MdYXbMMI",
+    appKey: "PAHDpBPppE0BsRG9e4hnKT9P",
+    notify: "false",
+    verify: "false",
+    avatar: "mm",
+    placeholder: "说点什么吧...",
+    visitor: "true",
+  });
+</script>
+
+ 
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#桌面-i3wm">桌面 i3wm</a>
+          <ul>
+            <li><a href="#启动">启动</a></li>
+          </ul>
+        </li>
+        <li><a href="#状态栏-polybar">状态栏 Polybar</a></li>
+        <li><a href="#窗口切换器应用程序启动器-rofi">窗口切换器，应用程序启动器 Rofi</a></li>
+        <li><a href="#终端-termite">终端 termite</a>
+          <ul>
+            <li><a href="#zsh">zsh</a></li>
+          </ul>
+        </li>
+        <li><a href="#其他美化">其他美化</a>
+          <ul>
+            <li><a href="#窗口模糊-picomcompton">窗口模糊 picom(compton)</a></li>
+            <li><a href="#触摸板">触摸板</a></li>
+            <li><a href="#主题和字体">主题和字体</a>
+              <ul>
+                <li><a href="#主题">主题</a></li>
+                <li><a href="#字体">字体</a></li>
+              </ul>
+            </li>
+            <li><a href="#解压">解压</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://Twor.me/">Twor</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

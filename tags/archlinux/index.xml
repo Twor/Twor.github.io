@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>archlinux on Twor</title>
+    <link>https://twor.me/tags/archlinux/</link>
+    <description>Recent content in archlinux on Twor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://Twor.me/&#34;&gt;Twor&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://twor.me/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最新ArchLinux安装</title>
+      <link>https://twor.me/posts/archlinux_install/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/archlinux_install/</guid>
+      <description>&lt;p&gt;新版 archlinux 的安装，相比之前有些改动&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

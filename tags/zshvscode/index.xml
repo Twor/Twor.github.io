@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zsh,vscode on Twor</title>
+    <link>https://twor.me/tags/zshvscode/</link>
+    <description>Recent content in zsh,vscode on Twor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://Twor.me/&#34;&gt;Twor&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 05 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://twor.me/tags/zshvscode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oh-my-zsh 配置美化（vscode乱码解决）</title>
+      <link>https://twor.me/posts/oh-my-zsh_config/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/oh-my-zsh_config/</guid>
+      <description>&lt;p&gt;让你的终端不再乱码&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Git命令进阶—删除隐私 同步fork pull request 和merge | Twor</title>
+<link rel="stylesheet" href="https://twor.me/css/eureka.min.css">
+<script defer src="https://twor.me/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_32x32_fill_box_center_2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://twor.me/images/icon_hu0da67b7ed10ce21940955265015f841f_5967_180x180_fill_box_center_2.png">
+
+<meta name="description"
+  content="Git命令进阶—删除隐私 同步fork pull request 和merge">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://twor.me/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Git命令进阶—删除隐私 同步fork pull request 和merge",
+      "item":"https://twor.me/posts/git_bash_tip/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://twor.me/posts/git_bash_tip/"
+    },
+    "headline": "Git命令进阶—删除隐私 同步fork pull request 和merge | Twor","datePublished": "2019-06-05T00:00:00+00:00",
+    "dateModified": "2019-06-05T00:00:00+00:00",
+    "wordCount":  318 ,
+    "author": {
+        "@type": "Person",
+        "name": ["Twor"]
+    },
+    "publisher": {
+        "@type": "Person",
+        "name": "Twor",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://twor.me/images/icon.png"
+        }
+        },
+    "description": "Git命令进阶—删除隐私 同步fork pull request 和merge"
+}
+</script><meta property="og:title" content="Git命令进阶—删除隐私 同步fork pull request 和merge | Twor" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://twor.me/images/icon.png">
+
+
+<meta property="og:url" content="https://twor.me/posts/git_bash_tip/" />
+
+
+
+<meta property="og:description" content="Git命令进阶—删除隐私 同步fork pull request 和merge" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="Twor" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2019-06-05T00:00:00&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2019-06-05T00:00:00&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="git" />
+
+
+
+
+
+<meta property="og:see_also" content="https://twor.me/posts/git_auto_web/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">Twor</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">About</a>
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">Posts</a>
+            <a href="/photos/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">Photo</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Git命令进阶—删除隐私 同步fork pull request 和merge</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2019-06-05</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    
+    
+
+    
+</div>
+        
+        
+        
+
+        <div class="content">
+            <p>在开发的时候，为了测试数据，总会连接一些数据库、服务器、API 之类，提交的时候就会不小心泄漏我们的 SSH key、密码或者 token 之类的东西，所以有必要掌握 Git 删除隐私。</p>
+<h3 id="删除隐私">删除隐私</h3>
+<h4 id="错误的做法如果发现不小心上传了隐私信息修改或删除相应的文件">错误的做法：如果发现不小心上传了隐私信息，修改或删除相应的文件</h4>
+<p>原因：git 是可以查看历史提交的，所以只需要查看历史提交，相应的隐私信息还是会暴露</p>
+<p><del>删厍？当我没说</del></p>
+<h4 id="git-filter-branch">git filter-branch</h4>
+<p>所有的历史记录中删除某个文件/文件夹 <code>yourfilepath</code> 就是需要删除的那个文件/文件夹</p>
+<pre><code class="language-bash">$ git filter-branch --force --index-filter 'git rm -r --cached --ignore-unmatch yourfilepath' --prune-empty --tag-name-filter cat -- --all
+
+$ git push origin master --force
+</code></pre>
+<p>此时再看看 <code>git log</code> 应该是没有该文件的信息了。</p>
+<p>请参考：<a href="https://docs.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository">https://docs.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository</a></p>
+<h3 id="同步-fork-代码">同步 fork 代码</h3>
+<ol>
+<li>
+<p>clone fork 的分支到本地</p>
+<pre><code class="language-bash">$ git clone git@github.com:*/flutter.git
+</code></pre>
+</li>
+<li>
+<p>增加源分支(被自己 fork 的项目)地址到自己 git 项目远程分支列表中，将原来的仓库命名为 upstream</p>
+<pre><code class="language-bash">$ git remote add upstream git@github.com:flutter/flutter.git
+</code></pre>
+</li>
+<li>
+<p>核实远程分支列表（optional）</p>
+<pre><code class="language-bash">$ git remote -v
+origin git@github.com:*/flutter.git (fetch)
+origin git@github.com:*/flutter.git (push)
+upstream git@github.com:flutter/flutter.git (fetch)
+upstream git@github.com:flutter/flutter.git (push)
+
+## 核实后，发现不如意，想删除，可以用 git remote remove name
+## name 为远程分支的命名，如上面例子，可以删除 upstream
+## git remote remove upstream
+## 或者直接删除之前fork的原始分支 origin
+## git remote remove origin (直接删除了原始分支后，再fork，
+## 也能达到更新了最新代码的需求，后面的步骤就不用了。)
+</code></pre>
+</li>
+<li>
+<p>fetch 源分支的新版本到本地</p>
+<pre><code class="language-bash">$ git fetch upstream
+</code></pre>
+</li>
+<li>
+<p>合并两个版本的代码</p>
+<pre><code class="language-bash">$ git merge upstream/master
+</code></pre>
+</li>
+<li>
+<p>将合并后的代码 push 到 github 上自己的 fork 中去</p>
+<pre><code class="language-bash">$ git push origin master
+
+## 如果要强制：
+## git push origin --force
+</code></pre>
+</li>
+</ol>
+<h3 id="pull-request">pull request</h3>
+<h4 id="提交更改">提交更改</h4>
+<pre><code class="language-bash">$ git add 'filename'
+$ git commit -m 'text'
+$ git push origin master
+</code></pre>
+<h4 id="发起-pull-request">发起 pull request</h4>
+<pre><code class="language-bash">## 需要安装 Github CLI
+$ gh pr create
+
+Creating pull request for master into master in Twor/dotfile
+
+! warning: could not compute title or body defaults: could not find any commits between master and master
+? Title zh_CN ## 填写你提交的内容
+? Body &lt;Received&gt; ## 说明
+? What's next?  [Use arrows to move, type to filter]
+&gt; Submit
+  Continue in browser
+  Add metadata
+  Cancel
+// .....
+</code></pre>
+<h3 id="merge">merge</h3>
+<h4 id="查看-pr-的状态">查看 pr 的状态</h4>
+<pre><code class="language-bash">$ gh pr status
+
+Relevant pull requests in Twor/dotfile
+
+Current branch
+  There is no pull request associated with [master]
+
+Created by you
+  #1  README.md [Catclerk:master]
+
+Requesting a code review from you
+  You have no pull requests to review
+
+$ gh pr merge &lt;ID&gt; -m
+
+Notice: authentication required
+Press Enter to open github.com in your browser...
+Authentication complete. Press Enter to continue...
+
+✔ Merged pull request #1 (README.md)
+✔ Deleted branch master
+</code></pre>
+<p>小坑： Github CLI 还不支持多用户，当你要切换用户时，去删除配置文件 <code>.config/gh/hosts.yml</code> 里面的内容 。</p>
+<p>还可以查看 issue 等等其他操作</p>
+<ul>
+<li>gh issue list</li>
+<li>gh issue view <ID> //但是这会在浏览器打开</li>
+</ul>
+<p>更多命令：<a href="https://cli.github.com/manual/">https://cli.github.com/manual/</a></p>
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://twor.me/tags/git/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#git</a>
+    
+</div>
+        
+        
+        
+        
+        
+        <div class="py-2">
+    
+    <div class="flex flex-col md:flex-row items-center my-8">
+        <a href="https://twor.me/authors/twor/" class="w-24 h-24 md:mr-4">
+            
+            
+            <img src="https://twor.me/images/icon.png" class="w-full bg-primary-bg rounded-full" alt="Avatar">
+            
+        </a>
+        <div class="w-full md:w-auto mt-4 md:mt-0">
+            <a href="https://twor.me/authors/twor/" class="block font-bold text-lg pb-1 mb-2 border-b">Twor</a>
+            <span class="block pb-2">听我脸色行事</span>
+            
+            
+            
+            
+            
+            <a href="mailto:840833458@qq.com" class="mr-1">
+                <i class="fas fa-envelope"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://space.bilibili.com/35754233" class="mr-1">
+                <i class="fab fa-youtube"></i>
+            </a>
+            
+            
+            
+            
+            
+            <a href="https://github.com/Twor" class="mr-1">
+                <i class="fab fa-github"></i>
+            </a>
+            
+        </div>
+    </div>
+    
+</div>
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://twor.me/posts/git_auto_web/" class="block">Git 自动化部署网站</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://twor.me/posts/wsl_archlinux_gui/" class="block">WSL(Windows Subsystem for Linux)安装archlinux，并配置图形化界面</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+<span
+  id="/posts/git_bash_tip/"
+  class="leancloud_visitors"
+  data-flag-title="Git命令进阶—删除隐私 同步fork pull request 和merge"
+>
+  <span class="post-meta-item-text">文章阅读量 </span>
+  <span class="leancloud-visitors-count">0</span>
+  <p></p>
+</span>
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+    el: "#vcomments",
+    appId: "hrOTL8wnYwOngGDd3GfkpiGL-MdYXbMMI",
+    appKey: "PAHDpBPppE0BsRG9e4hnKT9P",
+    notify: "false",
+    verify: "false",
+    avatar: "mm",
+    placeholder: "说点什么吧...",
+    visitor: "true",
+  });
+</script>
+
+ 
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#删除隐私">删除隐私</a>
+          <ul>
+            <li><a href="#错误的做法如果发现不小心上传了隐私信息修改或删除相应的文件">错误的做法：如果发现不小心上传了隐私信息，修改或删除相应的文件</a></li>
+            <li><a href="#git-filter-branch">git filter-branch</a></li>
+          </ul>
+        </li>
+        <li><a href="#同步-fork-代码">同步 fork 代码</a></li>
+        <li><a href="#pull-request">pull request</a>
+          <ul>
+            <li><a href="#提交更改">提交更改</a></li>
+            <li><a href="#发起-pull-request">发起 pull request</a></li>
+          </ul>
+        </li>
+        <li><a href="#merge">merge</a>
+          <ul>
+            <li><a href="#查看-pr-的状态">查看 pr 的状态</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://twor.me/posts/git_auto_web/">Git 自动化部署网站</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://Twor.me/">Twor</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>
