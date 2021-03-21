@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>archlinux,i3wm on Twor</title>
+    <link>https://twor.me/tags/archlinuxi3wm/</link>
+    <description>Recent content in archlinux,i3wm on Twor</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://Twor.me/&#34;&gt;Twor&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 21 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://twor.me/tags/archlinuxi3wm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ArchLinux 触摸板手势调教</title>
+      <link>https://twor.me/posts/archlinux_gesture/</link>
+      <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/archlinux_gesture/</guid>
+      <description>&lt;p&gt;比不上 Mac 的强大，简单的自定义，适合自己舒适就好。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

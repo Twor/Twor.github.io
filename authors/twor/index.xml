@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://Twor.me/&#34;&gt;Twor&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 07 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://twor.me/authors/twor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://twor.me/authors/twor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ArchLinux 触摸板手势调教</title>
+      <link>https://twor.me/posts/archlinux_gesture/</link>
+      <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://twor.me/posts/archlinux_gesture/</guid>
+      <description>&lt;p&gt;比不上 Mac 的强大，简单的自定义，适合自己舒适就好。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Linux上优雅的控制手机(水群)</title>
       <link>https://twor.me/posts/linux_android/</link>
